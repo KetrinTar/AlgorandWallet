@@ -1,0 +1,165 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>RSAKeyVaultProvider</name>
+    </assembly>
+    <members>
+        <member name="T:RSAKeyVaultProvider.ECDsaKeyVault">
+            <summary>
+            ECDsa implementation that uses Azure Key Vault
+            </summary>
+        </member>
+        <member name="M:RSAKeyVaultProvider.ECDsaKeyVault.#ctor(RSAKeyVaultProvider.KeyVaultContext)">
+            <summary>
+            Creates a new ECDsaKeyVault instance
+            </summary>
+            <param name="context">Context with parameters</param>
+        </member>
+        <member name="M:RSAKeyVaultProvider.ECDsaKeyVault.Dispose(System.Boolean)">
+            <inheritdoc/>
+        </member>
+        <member name="M:RSAKeyVaultProvider.ECDsaKeyVault.VerifyHash(System.Byte[],System.Byte[])">
+            <inheritdoc/>
+        </member>
+        <member name="M:RSAKeyVaultProvider.ECDsaKeyVault.ExportParameters(System.Boolean)">
+            <inheritdoc/>
+        </member>
+        <member name="M:RSAKeyVaultProvider.ECDsaKeyVault.ExportExplicitParameters(System.Boolean)">
+            <inheritdoc/>
+        </member>
+        <member name="M:RSAKeyVaultProvider.ECDsaKeyVault.ImportParameters(System.Security.Cryptography.ECParameters)">
+            <summary>
+            Importing parameters is not supported.
+            </summary>
+        </member>
+        <member name="M:RSAKeyVaultProvider.ECDsaKeyVault.GenerateKey(System.Security.Cryptography.ECCurve)">
+            <summary>
+            Key generation is not supported.
+            </summary>
+        </member>
+        <member name="M:RSAKeyVaultProvider.ECDsaKeyVault.ToXmlString(System.Boolean)">
+            <inheritdoc/>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:RSAKeyVaultProvider.ECDsaKeyVault.FromXmlString(System.String)" -->
+        <member name="T:RSAKeyVaultProvider.ECDsaFactory">
+            <summary>
+            Extensions for creating ECDsa from a Key Vault client.
+            </summary>
+        </member>
+        <member name="M:RSAKeyVaultProvider.ECDsaFactory.Create(Azure.Core.TokenCredential,System.Uri,Azure.Security.KeyVault.Keys.JsonWebKey)">
+            <summary>
+            Creates an ECDsa object
+            </summary>
+            <param name="credential"></param>
+            <param name="keyId"></param>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:RSAKeyVaultProvider.ECDsaFactory.Create(Azure.Core.TokenCredential,System.Uri,System.Security.Cryptography.X509Certificates.X509Certificate2)">
+            <summary>
+            Creates an ECDsa object
+            </summary>
+            <param name="credential"></param>
+            <param name="keyId"></param>
+            <param name="publicCertificate"></param>
+            <returns></returns>
+        </member>
+        <member name="T:RSAKeyVaultProvider.KeyVaultContext">
+            <summary>
+            A signing context used for signing packages with Azure Key Vault Keys.
+            </summary>
+        </member>
+        <member name="M:RSAKeyVaultProvider.KeyVaultContext.#ctor(Azure.Core.TokenCredential,System.Uri,Azure.Security.KeyVault.Keys.JsonWebKey)">
+            <summary>
+            Creates a new Key Vault context.
+            </summary>
+        </member>
+        <member name="M:RSAKeyVaultProvider.KeyVaultContext.#ctor(Azure.Core.TokenCredential,System.Uri,System.Security.Cryptography.X509Certificates.X509Certificate2)">
+            <summary>
+            Creates a new Key Vault context.
+            </summary>
+        </member>
+        <member name="P:RSAKeyVaultProvider.KeyVaultContext.Certificate">
+            <summary>
+            Gets the certificate and public key used to validate the signature. May be null if 
+            Key isn't part of a certificate
+            </summary>
+        </member>
+        <member name="P:RSAKeyVaultProvider.KeyVaultContext.KeyIdentifier">
+            <summary>
+            Identifyer of current key
+            </summary>
+        </member>
+        <member name="P:RSAKeyVaultProvider.KeyVaultContext.Key">
+            <summary>
+            Public key 
+            </summary>
+        </member>
+        <member name="P:RSAKeyVaultProvider.KeyVaultContext.IsValid">
+            <summary>
+            Returns true if properly constructed. If default, then false.
+            </summary>
+        </member>
+        <member name="T:RSAKeyVaultProvider.RSAKeyVault">
+            <summary>
+            RSA implementation that uses Azure Key Vault
+            </summary>
+        </member>
+        <member name="M:RSAKeyVaultProvider.RSAKeyVault.#ctor(RSAKeyVaultProvider.KeyVaultContext)">
+            <summary>
+            Creates a new RSAKeyVault instance
+            </summary>
+            <param name="context">Context with parameters</param>
+        </member>
+        <member name="M:RSAKeyVaultProvider.RSAKeyVault.SignHash(System.Byte[],System.Security.Cryptography.HashAlgorithmName,System.Security.Cryptography.RSASignaturePadding)">
+            <inheritdoc/>
+        </member>
+        <member name="M:RSAKeyVaultProvider.RSAKeyVault.VerifyHash(System.Byte[],System.Byte[],System.Security.Cryptography.HashAlgorithmName,System.Security.Cryptography.RSASignaturePadding)">
+            <inheritdoc/>
+        </member>
+        <member name="M:RSAKeyVaultProvider.RSAKeyVault.HashData(System.Byte[],System.Int32,System.Int32,System.Security.Cryptography.HashAlgorithmName)">
+            <inheritdoc/>
+        </member>
+        <member name="M:RSAKeyVaultProvider.RSAKeyVault.HashData(System.IO.Stream,System.Security.Cryptography.HashAlgorithmName)">
+            <inheritdoc/>
+        </member>
+        <member name="M:RSAKeyVaultProvider.RSAKeyVault.Decrypt(System.Byte[],System.Security.Cryptography.RSAEncryptionPadding)">
+            <inheritdoc/>
+        </member>
+        <member name="M:RSAKeyVaultProvider.RSAKeyVault.Encrypt(System.Byte[],System.Security.Cryptography.RSAEncryptionPadding)">
+            <inheritdoc/>
+        </member>
+        <member name="M:RSAKeyVaultProvider.RSAKeyVault.ExportParameters(System.Boolean)">
+            <inheritdoc/>
+        </member>
+        <member name="M:RSAKeyVaultProvider.RSAKeyVault.ImportParameters(System.Security.Cryptography.RSAParameters)">
+            <inheritdoc/>
+        </member>
+        <member name="M:RSAKeyVaultProvider.RSAKeyVault.Dispose(System.Boolean)">
+            <inheritdoc/>
+        </member>
+        <member name="T:RSAKeyVaultProvider.RSAFactory">
+            <summary>
+            Extensions for creating RSA objects from a Key Vault client.
+            </summary>
+        </member>
+        <member name="M:RSAKeyVaultProvider.RSAFactory.Create(Azure.Core.TokenCredential,System.Uri,Azure.Security.KeyVault.Keys.JsonWebKey)">
+            <summary>
+            Creates an RSA object
+            </summary>
+            <param name="credential"></param>
+            <param name="keyId"></param>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:RSAKeyVaultProvider.RSAFactory.Create(Azure.Core.TokenCredential,System.Uri,System.Security.Cryptography.X509Certificates.X509Certificate2)">
+            <summary>
+            Creates an RSA object
+            </summary>
+            <param name="credential"></param>
+            <param name="keyId"></param>
+            <param name="publicCertificate"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>
